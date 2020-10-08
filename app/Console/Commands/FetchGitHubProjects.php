@@ -16,7 +16,7 @@ class FetchGitHubProjects extends Command
     public function handle()
     {
         $projects = app('mygithub')
-            ->repositories('spatie')
+            ->repositories(config('app.organization'))
             ->where('archived', false)
             ->map(function ($repo) {
                 return [
