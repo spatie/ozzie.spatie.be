@@ -17,6 +17,7 @@ class FetchGitHubProjects extends Command
     {
         $projects = app('mygithub')
             ->repositories('spatie')
+            ->where('archived', false)
             ->map(function ($repo) {
                 return [
                     'namespace' => $repo->namespace,

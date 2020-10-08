@@ -8,6 +8,7 @@ class Repo extends DataTransferObject
 {
     public $namespace;
     public $name;
+    public $archived;
 
     public function __construct(array $parameters)
     {
@@ -16,6 +17,7 @@ class Repo extends DataTransferObject
         parent::__construct([
             'namespace' => $namespace,
             'name' => $name,
+            'archived' => $parameters['archived'],
         ]);
     }
 
