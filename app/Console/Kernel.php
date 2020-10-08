@@ -29,6 +29,7 @@ class Kernel extends ConsoleKernel
             ->daily();
 
         $schedule->command('projects:cache')
+            ->runInBackground()
             ->hourly();
 
         $schedule->command('stats:slack')

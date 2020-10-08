@@ -12,7 +12,7 @@ class DashboardController extends Controller
         $hacktoberfest = (bool) Carbon::now()->isSameMonth(Carbon::parse('October'));
 
         return view('dashboard', [
-            'projects' => (new Projects)->all(),
+            'projects' => (new Projects)->all()->filter->debtScore(),
             'hacktoberfest' => $hacktoberfest,
         ]);
     }
