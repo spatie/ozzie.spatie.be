@@ -834,11 +834,6 @@
         "name": "code-outliner",
         "maintainers": []
     },
-    "196": {
-        "namespace": "spatie",
-        "name": "medialibrary-demo-laracon",
-        "maintainers": []
-    },
     "197": {
         "namespace": "spatie",
         "name": "nova-app-event-projector",

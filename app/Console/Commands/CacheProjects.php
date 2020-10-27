@@ -15,9 +15,11 @@ class CacheProjects extends Command
 
     public function handle()
     {
-        $this->output->progressStart((new Projects)->load()->count());
+        $this->output->progressStart((new Projects())->load()->count());
 
-        $projects = (new Projects)->load()->sortBy('name')->map(function ($project) {
+        $projects = (new Projects())->load()->sortBy('name')->map(function (
+            $project
+        ) {
             $this->output->progressAdvance();
 
             return new Project(
@@ -29,10 +31,6 @@ class CacheProjects extends Command
 
         $this->output->progressFinish();
 
-        /*
-         * We'll cache the projects slightly longer than the controller
-         * to make sure the controller never has an expired value.
-         */
-        Cache::put('projects', $projects, 60 * 70);
+        Cache::put('projects', $projects);
     }
 }
